@@ -9,15 +9,24 @@
 <body>
     <main>
         <div class="scores">
-            <div>Player 1 (X): <span id="player1Score">0</span></div>
-            <div>Player 2 (O): <span id="player2Score">0</span></div>
+            <div>
+                <button id="editPlayer1">edit</button>
+                <div id="playerName1">Player 2 (O)</div>:
+                <div id="player2Score">0</div>
+            </div>
+
+            <div>
+                <button id="editPlayer2">edit</button>
+                <div id="playerName2">Player 1 (X)</div>:
+                <div id="player1Score">0</div>
+            </div>
         </div>
         
         <h1></h1>
         <div class="board"></div>
         <button type="button" id="restart">Restart</button>
     </main>
-    
+
     <script src="script.js"></script>
 </body>
 </html>
