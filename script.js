@@ -118,7 +118,7 @@ function gameController(
   const resetGame = () => {
     gameboard.reset();
     winner = null;
-    activePlayer = player1; // Reset turn back to player 1
+    activePlayer = player1; 
   };
 
   return {
@@ -134,12 +134,45 @@ function gameController(
 
 // 5. Display Controller
 const displayController = () => {
-  const game = gameController("Player One", "Player Two");
+  const player1Input = document.getElementById('playerName1');
+  const player2Input = document.getElementById('playerName2');
+  
+  // Initialize game using default or input values
+  const game = gameController(player1Input.value || "Player One", player2Input.value || "Player Two");
+  
   const playerTurnH1 = document.querySelector("h1");
   const boardDiv = document.querySelector(".board");
   const player1Score = document.getElementById('player1Score');
   const player2Score = document.getElementById('player2Score');
   const restartBtn = document.getElementById('restart');
+
+  const editPlayer1Btn = document.getElementById('editPlayer1Name');
+  const editPlayer2Btn = document.getElementById('editPlayer2Name');
+
+  // Handle editing player names
+  editPlayer1Btn.addEventListener('click', () => {
+    player1Input.disabled = !player1Input.disabled;
+    if (!player1Input.disabled) player1Input.focus();
+    game.player1.name = player1Input.value || "Player One";
+    updateScreen();
+  });
+
+  editPlayer2Btn.addEventListener('click', () => {
+    player2Input.disabled = !player2Input.disabled;
+    if (!player2Input.disabled) player2Input.focus();
+    game.player2.name = player2Input.value || "Player Two";
+    updateScreen();
+  });
+
+  player1Input.addEventListener('input', () => {
+    game.player1.name = player1Input.value || "Player One";
+    updateScreen();
+  });
+
+  player2Input.addEventListener('input', () => {
+    game.player2.name = player2Input.value || "Player Two";
+    updateScreen();
+  });
 
   const updateScreen = () => {
     boardDiv.textContent = "";
