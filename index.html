@@ -4,26 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
     <title>Tic Tac Toe</title>
 </head>
 <body>
     <main>
         <div class="scores">
             <div>
-                <button id="editPlayer1">edit</button>
-                <div id="playerName1">Player 2 (O)</div>:
-                <div id="player2Score">0</div>
+                <button id="editPlayer1Name"><span class="mdi mdi-pencil"></span></button>
+                <input id="playerName1" value="Player One (X)">
+                <div id="player1Score">0</div>
             </div>
 
             <div>
-                <button id="editPlayer2">edit</button>
-                <div id="playerName2">Player 1 (X)</div>:
-                <div id="player1Score">0</div>
+                <button id="editPlayer2Name"><span class="mdi mdi-pencil"></span></button>
+                <input id="playerName2" value="Player Two (O)">
+                <div id="player2Score">0</div>
             </div>
         </div>
         
         <h1></h1>
-        <div class="board"></div>
+        <div class="board-container">
+            <div class="board"></div>
+        </div>
         <button type="button" id="restart">Restart</button>
     </main>
 
